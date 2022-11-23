@@ -1,3 +1,6 @@
+@forward "landingPage";
+@forward "selectAddName";
+@forward "play";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,70 +8,45 @@
 }
 body {
   background-color: rgba(0, 255, 255, 0.339);
+  font-family: Inter, sans-serif;
 }
 .App {
   height: 100vh;
-
-  .rules {
-    h1 {
-      margin-bottom: 30px;
-    }
-    height: 100%;
+  .nameExit {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    .StartBtn {
-      width: 20%;
-
-      font-weight: bold;
-      margin-top: 30px;
+    padding: 0px 50px;
+    .headerName {
+      background-color: aqua;
+      border-bottom: 5px solid rgb(150, 30, 30);
+      border-left: 5px solid rgb(9, 197, 9);
+      border-right: 5px solid rgb(0, 0, 159);
+      display: flex;
+      width: 400px;
+      text-align: center;
       align-items: center;
-      appearance: none;
-      background-image: radial-gradient(
-        100% 100% at 100% 0,
-        #5adaff 0,
-        #5468ff 100%
-      );
-      border: 0;
-      border-radius: 6px;
-      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
-        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-        rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
-      box-sizing: border-box;
-      color: #fff;
-      cursor: pointer;
-      display: inline-flex;
-      font-family: "JetBrains Mono", monospace;
-      height: 48px;
-      justify-content: center;
-      line-height: 1;
-      list-style: none;
-      overflow: hidden;
-      padding-left: 16px;
-      padding-right: 16px;
-      position: relative;
-      text-align: left;
+      justify-content: space-evenly;
+
+      h1:first-child {
+        color: rgb(86, 86, 86);
+        padding-left: 5px;
+      }
+      h1:last-child {
+        text-transform: uppercase;
+        color: rgb(150, 30, 30);
+      }
+    }
+    a {
+      background-color: rgba(232, 16, 16, 0.551);
+      padding: 10px;
       text-decoration: none;
-      transition: box-shadow 0.15s, transform 0.15s;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      white-space: nowrap;
-      will-change: box-shadow, transform;
-      font-size: 18px;
-      &:focus {
-        box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-      }
+      color: black;
       &:hover {
-        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
-          rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-        transform: translateY(-2px);
-      }
-      &:active {
-        box-shadow: #3c4fe0 0 3px 7px inset;
-        transform: translateY(2px);
+        color: white;
+        // border-radius: 50%;
+
+        background-color: rgb(232, 16, 16);
       }
     }
   }

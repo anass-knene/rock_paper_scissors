@@ -1,21 +1,32 @@
 import React from "react";
+import SelectAddName from "./SelectAddName";
+import LandingPage from "./LandingPage";
+import { Link, Route, Routes } from "react-router-dom";
+import { useContext } from "react";
+import { MyContext } from "./context/context";
+import Play from "./Play";
 import "./styles/App.scss";
-import { BsArrowDown } from "react-icons/bs";
+
 function App() {
+  const { isUserExit, setIsUserExit } = useContext(MyContext);
   return (
     <div className="App">
-      <div className="rules">
-        <h1>Rules</h1>
-        <BsArrowDown size="4em" style={{ marginBottom: "30px" }} color="red" />
-
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Rock-paper-scissors.svg/1200px-Rock-paper-scissors.svg.png"
-          alt="img"
-          width="600px"
-          height="600px"
-        />
-        <input type="button" value="Get Started" className="StartBtn" />
-      </div>
+      {!isUserExit && (
+        <div className="nameExit">
+          <div className="headerName">
+            <h1>Nick Name : </h1>
+            <h1>Anass</h1>
+          </div>
+          <Link onClick={() => setIsUserExit(true)} to="/">
+            <h2>Exit</h2>
+          </Link>
+        </div>
+      )}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/selectAddName" element={<SelectAddName />} />
+        <Route path="/play" element={<Play />} />
+      </Routes>
     </div>
   );
 }
