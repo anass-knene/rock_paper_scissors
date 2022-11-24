@@ -97,9 +97,11 @@ function SelectAddName() {
           onClick={(e) => changeBorderColor(e)}
         />
       </div>
-      <Link className="submitInput" to="/play">
-        Start
-      </Link>
+      {yourSelection && (
+        <Link className="submitInput" to="/play">
+          Start
+        </Link>
+      )}
     </div>
   );
 }
