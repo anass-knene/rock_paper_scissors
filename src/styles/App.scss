@@ -1,3 +1,4 @@
+@use "button";
 @forward "landingPage";
 @forward "selectAddName";
 @forward "play";
@@ -6,6 +7,7 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background-color: rgba(0, 255, 255, 0.339);
   font-family: Inter, sans-serif;
