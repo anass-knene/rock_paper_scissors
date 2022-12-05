@@ -15,13 +15,37 @@ function Play() {
   const [yourResult, setYourResult] = useState("");
   const [playerResult, setPlayerResult] = useState("");
 
-  let gameArray = ["Scissor", "Rock", "Paper"];
+  // this code to make random string from gameArray
+  // let gameArray = ["Scissor", "Rock", "Paper"];
+  // let findPlayer2Match;
+  //     let randomStringPl2 = Math.floor(Math.random() * gameArray.length);
+
+  //   findPlayer2Match = gameArray.find(
+  //     (item, index) => index === randomStringPl2
+  //   );
+  //   if (findPlayer2Match) {
+  //     setPlayerSelection(findPlayer2Match);
+  //   }
+  /////////////////////////////////////////////////////////////////
   let findPlayer2Match;
   function playAgainFun() {
+    let gameArray = ["Scissor", "Rock", "Paper"];
+    let randomStringPl2 = Math.floor(Math.random() * gameArray.length);
+
+    findPlayer2Match = gameArray.find(
+      (item, index) => index === randomStringPl2
+    );
+    console.log(findPlayer2Match);
+    setPlayerSelection(findPlayer2Match);
+    if (findPlayer2Match) {
+      console.log(yourSelection);
+      console.log(findPlayer2Match);
+      // console.log(playerSelection);
+    }
     if (
-      (yourSelection === "Scissor" && playerSelection === "Paper") |
-      (yourSelection === "Rock" && playerSelection === "Scissor") |
-      (yourSelection === "Paper" && playerSelection === "Rock")
+      (yourSelection === "Scissor" && findPlayer2Match === "Paper") |
+      (yourSelection === "Rock" && findPlayer2Match === "Scissor") |
+      (yourSelection === "Paper" && findPlayer2Match === "Rock")
     ) {
       // console.log("you win");
       setYourResult("You Win");
@@ -29,9 +53,9 @@ function Play() {
       setResultUser(resultUser + 1);
       return;
     } else if (
-      (yourSelection === "Scissor" && playerSelection === "Rock") |
-      (yourSelection === "Rock" && playerSelection === "Paper") |
-      (yourSelection === "Paper" && playerSelection === "Scissor")
+      (yourSelection === "Scissor" && findPlayer2Match === "Rock") |
+      (yourSelection === "Rock" && findPlayer2Match === "Paper") |
+      (yourSelection === "Paper" && findPlayer2Match === "Scissor")
     ) {
       // console.log("Player win");
       setPlayerResult("You Win");
@@ -39,9 +63,9 @@ function Play() {
       setResultPl2(resultPl2 + 1);
       return;
     } else if (
-      (playerSelection === "Scissor" && yourSelection === "Paper") |
-      (playerSelection === "Rock" && yourSelection === "Scissor") |
-      (playerSelection === "Paper" && yourSelection === "Rock")
+      (findPlayer2Match === "Scissor" && yourSelection === "Paper") |
+      (findPlayer2Match === "Rock" && yourSelection === "Scissor") |
+      (findPlayer2Match === "Paper" && yourSelection === "Rock")
     ) {
       // console.log("Player win");
       setPlayerResult("You Win");
@@ -49,9 +73,9 @@ function Play() {
       setResultPl2(resultPl2 + 1);
       return;
     } else if (
-      (playerSelection === "Scissor" && yourSelection === "Rock") |
-      (playerSelection === "Rock" && yourSelection === "Paper") |
-      (playerSelection === "Paper" && yourSelection === "Scissor")
+      (findPlayer2Match === "Scissor" && yourSelection === "Rock") |
+      (findPlayer2Match === "Rock" && yourSelection === "Paper") |
+      (findPlayer2Match === "Paper" && yourSelection === "Scissor")
     ) {
       // console.log("you win");
       setYourResult("You Win");
@@ -63,16 +87,8 @@ function Play() {
       setYourResult("Draw");
       setPlayerResult("Draw");
     }
-
-    let randomStringPl2 = Math.floor(Math.random() * gameArray.length);
-
-    findPlayer2Match = gameArray.find(
-      (item, index) => index === randomStringPl2
-    );
-    if (findPlayer2Match) {
-      setPlayerSelection(findPlayer2Match);
-    }
   }
+
   function iconShoosAgain(e) {
     e.preventDefault();
 
@@ -97,22 +113,22 @@ function Play() {
     setResultPl2(0);
   }
 
-  useEffect(() => {
-    // playAgainFun();
-  }, [yourSelection, playerSelection]);
-
+  // useEffect(() => {
+  //   // playAgainFun();
+  //   console.log(findPlayer2Match);
+  // }, [yourSelection]);
   return (
     <div className="play">
       <div className="player1 pl">
         <form className="shoosAgain">
           <div className="userPlayAgainDiv">
             <h1 style={{ textTransform: "uppercase" }}>{userName}</h1>
-            {/* <input
+            <input
               type="button"
               value="Play"
               className="playAgainInput"
               onClick={playAgainFun}
-            /> */}
+            />
           </div>
           <div className="divShoosAgain">
             <div className="scissorShoosAgain">
