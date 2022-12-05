@@ -19,16 +19,19 @@ function SelectAddName() {
   function changeBorderColor(e) {
     if (e.target.classList.contains("scissors")) {
       setYourSelection("Scissor");
+      localStorage.setItem("userSelect", "Scissor");
       setYouShoosScissor(!youShoosScissor);
       setYouShoosPaper(false);
       setYouShoosRock(false);
     } else if (e.target.classList.contains("rock")) {
       setYourSelection("Rock");
+      localStorage.setItem("userSelect", "Rock");
       setYouShoosRock(!youShoosRock);
       setYouShoosPaper(false);
       setYouShoosScissor(false);
     } else if (e.target.classList.contains("paper")) {
       setYourSelection("Paper");
+      localStorage.setItem("userSelect", "Paper");
       setYouShoosPaper(!youShoosPaper);
       setYouShoosScissor(false);
       setYouShoosRock(false);
@@ -37,9 +40,11 @@ function SelectAddName() {
   const submitNickNameFun = (e) => {
     e.preventDefault();
     let form = document.querySelector("form");
-    console.log(form.classList);
+
     form.classList.remove("animate__bounceInDown");
     form.classList.add("animate__bounceOut");
+    localStorage.setItem("userName", e.target.playerName.value);
+
     setUserName(e.target.playerName.value);
     setTimeout(() => {
       setModalBoolean(true);

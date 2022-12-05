@@ -10,6 +10,8 @@ function Container({ children }) {
     if (location.pathname === "/") {
       setIsUserExit(true);
     } else {
+      setUserName(localStorage.getItem("userName"));
+      setYourSelection(localStorage.getItem("userSelect"));
       setIsUserExit(false);
     }
   }, []);
